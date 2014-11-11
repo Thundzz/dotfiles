@@ -1,0 +1,30 @@
+[user]
+	email = yacinenew@gmail.com
+	name = Thundzz
+[alias]
+    st = status	
+    df = diff
+    co = checkout
+    ci = commit
+    br = branch
+    amend = commit --amend
+    who = shortlog -sne
+    oneline = log --pretty=oneline --abbrev-commit --graph
+    changes = diff --name-status
+    dic = diff --cached
+    diffstat = diff --stat
+    svnpull = svn rebase
+    svnpush = svn dcommit
+    lc = !git oneline ORIG_HEAD.. --stat --no-merges
+    addm = !git-ls-files -m -z | xargs -0 git-add && git status
+    addu = !git-ls-files -o --exclude-standard -z | xargs -0 git-add && git status
+    rmm = !git ls-files -d -z | xargs -0 git-rm && git status
+    mate = !git-ls-files -m -z | xargs -0 mate
+    mateall = !git-ls-files -m -o --exclude-standard -z | xargs -0 mate
+	s = status -s
+	lg = log --oneline --decorate --all --graph
+[core]
+	edit = emacs
+	editor = emacs
+[push]
+	default = simple
