@@ -1,0 +1,4 @@
+[
+	{ "keys": ["f1"], "command": "open_file", "args": {"file": "C:\\MyPythonModules\\a.py"} },
+	{ "keys": ["f5"], "command": "build" },
+]
