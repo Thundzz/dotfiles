@@ -2,24 +2,13 @@
 
 # definition  des alias
 
-alias firefox='~/firefox/firefox'
-alias ds='~/diskspace.sh | sort -h'
 alias ll='ls -la'
 alias mv='mv -i'
-alias tests='cd ~/TESTS'
 alias cl='clear'
-alias seven='svn'
-alias evince='evince 2>/dev/null'
 alias ls='ls --color'
-alias git='hub'
-alias ms='ls'
-#variable
-#prompt
-export PS1="[\H][\W]" # produit un prompt" [Login][Currentdir]"
-#[\u]
+alias subl="/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe"
+alias timestamp="date --rfc-3339=seconds"
 
 
-
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-source ~/.rvm/scripts/rvm
+#prompt (git-bash prompt)
+export PS1="\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h \[\033[35m\]$MSYSTEM \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$ "

@@ -1,6 +1,3 @@
-[user]
-	email = yacinenew@gmail.com
-	name = Thundzz
 [alias]
     st = status	
     df = diff
@@ -24,7 +21,7 @@
 	s = status -s
 	lg = log --oneline --decorate --all --graph
 [core]
-	edit = emacs
-	editor = emacs
+	edit = vi
+	editor = vi
 [push]
 	default = simple

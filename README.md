@@ -1,15 +1,4 @@
 # Configuration file repo
 
-This repo contains my configuration files for
-
-* Emacs
-* Bash
-* Git
-
-Everytime I think about something else
-
-# Todo list :
-
-* Add a script that installs these config files
-* Add a script that backups config files somewhere
-* Add a script that saves current config files of some machine to the repo.
+This repo contains various handy configuration files.
+It is not very often updated and is more of a backup of my useful stuff  rather than a bleeding edge always up-to-date version of my configuration.
