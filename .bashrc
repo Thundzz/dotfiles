@@ -30,9 +30,9 @@ alias pullall="find . -name ".git" -type d | sed 's/\/.git//' |  xargs -P10 -I{}
 alias timestamp="date --rfc-3339=seconds"
 alias mv='mv -i'
 
-# AWS 
 alias randomusic="shuf -n 1 ~/Documents/Perso/play.google.com-1479562807628.log"
 alias winpwd="pwd | xargs cygpath.exe -w"
+alias please="sudo"
 
 export PATH=$PATH:"/c/Program Files/KDiff3":"$HOME/Downloads":"C:\Program Files (x86)\CodeBlocks\MinGW\bin":"/c/Projects/python-toolbox/calcul-historique"
 export PATHEXT=$PATHEXT:".py"
@@ -40,3 +40,5 @@ export EDITOR=vim
 export PATH=:$USERPROFILE/AppData/Roaming/Python/Scripts:$PATH
 export PS1="\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h \[\033[35m\]$MSYSTEM \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$ "
 
+
+complete -Ef
