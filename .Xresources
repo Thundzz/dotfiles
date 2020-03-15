@@ -102,7 +102,7 @@ Xcursor.size:                     0
 
 ! alternative font settings with 'terminus':
 ! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
-! URxvt.bold.font: -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
+URxvt.bold.font: -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
 !! terminus names see end of file!
 
 URxvt.depth:                      32
@@ -277,7 +277,7 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! -xos4-terminus-bold-r-normal--28-280-72-72-c-140-iso10646-1
 ! -xos4-terminus-bold-r-normal--32-320-72-72-c-160-iso10646-1
 
-URxvt.font:         xft:Fira Code:style=Retina:pixelsize=12:antialias=true:hinting=true
-yeahconsole*faceName:       xft:Fira Code:style=Light:pixelsize=12:antialias=true
-xterm*faceName:         xft:Fira Code:style=Light:pixelsize=12:antialias=true
+URxvt.font:         xft:Fira Code:style=Retina:pixelsize=12:antialias=true:hinting=true,9x15,xft:TerminessTTFNerdFontMono
+yeahconsole*faceName:       xft:Fira Code:style=Retina:pixelsize=12:antialias=true
+xterm*faceName:         xft:Fira Code:style=Retina:pixelsize=12:antialias=true
 
