@@ -101,6 +101,13 @@ workspace_auto_back_and_forth yes
 bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
+# assign workspaces to specific screens
+
+workspace 1 output HDMI-0
+workspace 2 output DVI-I-0
+workspace 3 output HDMI-0
+# workspace 4 output DVI-I-0
+
 # split orientation
 bindsym $mod+h split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
@@ -336,15 +343,15 @@ set_from_resource $term_color15    color15
 bar {
 	i3bar_command i3bar
 	status_command i3status
-    position top
+	position top
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-    tray_output primary
+	tray_output primary
 #	tray_output eDP1
 
 	bindsym button4 nop
 	bindsym button5 nop
-#   font xft:URWGothic-Book 11
+	font xft:URWGothic-Book 9
 	strip_workspace_numbers yes
 
     colors {
@@ -379,8 +386,8 @@ client.background       #2B2C2B
 #############################
 
 # Set inner/outer gaps
-gaps inner 6
-gaps outer -2
+gaps inner 4
+gaps outer -1
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>

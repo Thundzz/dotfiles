@@ -1,0 +1,17 @@
+export PROJECTS_DIRECTORY="$HOME/Projects"
+export BROWSER=/usr/bin/google-chrome-stable
+export LESSCHARSET=utf-8
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export RXVT_SOCKET="$XDG_RUNTIME_DIR"/urxvtd
+
+# Cleanup 
+export HISTFILE="$XDG_DATA_HOME"/bash/history
+
+
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export EDITOR=vim
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+export TERM=rxvt-256color
+
