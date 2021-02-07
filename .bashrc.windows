@@ -1,6 +1,8 @@
 export PROJECTS_DIRECTORY=/c/Projects
 export DESKTOP_DIR=$HOME/Desktop
 export EDITOR="subl -n -w"
+export TERM="cygwin"
+export ANSICON=true
 
 
 function browse() {
@@ -9,18 +11,26 @@ function browse() {
     then
      directory=$1
     fi
-    cd $directory;
+    cd "$directory";
 }
+
+function v() { kubectl describe deploy $1 | grep "Image:" | cut -d/ -f3; }
+function klogs() { kubectl logs -f --since $1 $(kubectl get pods --no-headers -o custom-columns=":metadata.name" | fzf); }
 
 # Shortcuts 
 alias myfind="grep -inr"
+alias grep="grep --color"
 alias lost="echo 4 8 15 16 23 42"
+alias l="less"
 alias ll="ls -laSh"
 alias genpasswd="cat /dev/urandom | tr -cd '[:alnum:]' | head -c 32"
 alias ms="ls"
 alias kc="kubectl"
-alias isodate="echo $(date -u '+%Y-%m-%dT%H:%M:%S')"
+alias isodate="date -u '+%Y-%m-%dT%H:%M:%S'"
 alias pruneLocal="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
+alias watch="watch "
+alias le_meilleur_moment_de_la_journee='echo le moment du skribbl.io'
+alias awsprof="aws configure list-profiles"
 
 # Git 
 alias g="git"
@@ -41,7 +51,10 @@ if [[ "$OSTYPE" == "msys" ]]; then
     alias e="ii ."
     export PATH=$PATH:"/c/Program Files/KDiff3"
     export PATHEXT=$PATHEXT:".py"
+
+    function wealpath(){ realpath $1 | xargs cygpath.exe -w; }
 fi
 
 #kubectx and kubens
 export PATH=~/.kubectx:$PATH
+MANPATH=$MANPATH:$HOME/share/man
