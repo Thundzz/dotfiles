@@ -1,6 +1,6 @@
 [user]
-	email = yacine.el-jarrari@atinternet.com
-	name = Yacine El-Jarrari
+	email = 
+	name = Thundzz
 [alias]
     fid = !git flow init -d
     st = status
