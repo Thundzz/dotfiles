@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[
+from datetime import datetime, timedelta
+def datetime_range(start, end):
+    span = end - start
+    for i in range(span.days + 1):
+        yield end - timedelta(days=i)
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>drange</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.python</scope>
+</snippet>

@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+for date in [d.strftime("%Y%m%d") for d in datetime_range(datetime($1), datetime($2))]:
+	print(date)
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>fordate</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.python</scope>
+</snippet>

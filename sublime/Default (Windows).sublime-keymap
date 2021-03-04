@@ -1,0 +1,10 @@
+[
+	{ "keys": ["f1"], "command": "open_file", "args": {"file": "C:\\MyPythonModules\\a.py"} },
+	{ "keys": ["f5"], "command": "build" },
+	{
+        "keys": ["ctrl+shift+e"],
+        "command": "swap_brackets"
+    },
+    { "keys": ["shift+ctrl+y"], "command": "emmet_evaluate_math" }
+    { "keys": ["shift+i"], "command" : "reindent" }
+]
