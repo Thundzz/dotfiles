@@ -9,3 +9,4 @@ alias clip="xclip -sel clipboard"
 alias git='LANG=en_GB git'  
 alias p='cd $(ls -d $PROJECTS_DIRECTORY/* | fzf)'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias subl="subl3"
