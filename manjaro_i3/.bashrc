@@ -7,6 +7,9 @@ shopt -s checkwinsize
 shopt -s expand_aliases
 shopt -s histappend
 
+HISTSIZE=20000
+HISTFILESIZE=20000
+
 source $HOME/.config/env
 source $HOME/.config/aliasrc
 source $HOME/.config/bash/bash_color
