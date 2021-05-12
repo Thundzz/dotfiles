@@ -1,9 +1,17 @@
+shopt -s expand_aliases
+shopt -s histappend
+
+export HISTSIZE=20000
+export HISTFILESIZE=20000
+
 export PROJECTS_DIRECTORY=/c/Projects
 export DESKTOP_DIR=$HOME/Desktop
 export EDITOR="subl -n -w"
 export TERM="cygwin"
 export ANSICON=true
 
+export FZF_DEFAULT_OPTS='--no-height --reverse'
+export PS1='\n\[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\] `kube_ps1` `aws_profile` \n$ '
 
 function browse() {
     directory=`ls -d $1/* | fzf`
@@ -14,10 +22,24 @@ function browse() {
     cd "$directory";
 }
 
+function include() {
+    [[ -f "$1" ]] && source "$1"
+}
+
+function aws_profile() {
+    if [[ -n $AWS_PROFILE ]]; then
+      echo -n "(aws:$AWS_PROFILE)"
+    elif [[ -n $AWS_DEFAULT_PROFILE ]]; then
+      echo -n "(aws:$AWS_DEFAULT_PROFILE)"
+    else
+      echo -n "(aws:default)"
+    fi
+}
+
 function v() { kubectl describe deploy $1 | grep "Image:" | cut -d/ -f3; }
 function klogs() { kubectl logs -f --since $1 $(kubectl get pods --no-headers -o custom-columns=":metadata.name" | fzf); }
 
-# Shortcuts 
+# Shortcuts
 alias myfind="grep -inr"
 alias grep="grep --color"
 alias lost="echo 4 8 15 16 23 42"
@@ -32,28 +54,29 @@ alias watch="watch "
 alias le_meilleur_moment_de_la_journee='echo le moment du skribbl.io'
 alias awsprof="aws configure list-profiles"
 
-# Git 
+# Git
 alias g="git"
 alias pullall="find . -name ".git" -type d | sed 's/\/.git//' |  xargs -P10 -I{} git -C {} pull --all"
 alias gf="git flow"
+alias aal="aws-azure-login -p azure"
 
 alias p="browse $PROJECTS_DIRECTORY"
 alias d="browse $DESKTOP_DIR"
 
-
-
-function choose-context() { kubectl config set-context $(kubectl config get-contexts | tr -s " " | cut -d$' ' -f2 | tail -n +2 | fzf); }
-
 complete -Ef
 
 if [[ "$OSTYPE" == "msys" ]]; then
-    alias winpwd="pwd | xargs cygpath.exe -w"
-    alias e="ii ."
-    export PATH=$PATH:"/c/Program Files/KDiff3"
-    export PATHEXT=$PATHEXT:".py"
+  alias winpwd="pwd | xargs cygpath.exe -w"
+  alias e="ii ."
+  export PATH=$PATH:"/c/Program Files/KDiff3"
+  export PATHEXT=$PATHEXT:".py"
 
-    function wealpath(){ realpath $1 | xargs cygpath.exe -w; }
+  function wealpath(){ realpath $1 | xargs cygpath.exe -w; }
 fi
+
+include ~/.config/fzf/key-bindings.bash
+include ~/.config/fzf/completion.bash
+include ~/.kube-ps1/kube-ps1.sh
 
 #kubectx and kubens
 export PATH=~/.kubectx:$PATH
