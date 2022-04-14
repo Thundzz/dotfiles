@@ -4,12 +4,14 @@ shopt -s histappend
 export HISTSIZE=20000
 export HISTFILESIZE=20000
 
+# Prevent MSYS2 from translating paths (breaks many commands. Generally not a good idea but can be useful in some situations)
+# export MSYS_NO_PATHCONV=1
+
 export PROJECTS_DIRECTORY=/c/Projects
 export DESKTOP_DIR=$HOME/Desktop
 export EDITOR="subl -n -w"
-export TERM="cygwin"
+export TERM="screen-256color"
 export ANSICON=true
-
 export FZF_DEFAULT_OPTS='--no-height --reverse'
 export PS1='\n\[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\] `kube_ps1` `aws_profile` \n$ '
 
@@ -26,6 +28,12 @@ function include() {
     [[ -f "$1" ]] && source "$1"
 }
 
+function amogus() {
+    export IMPOSTOR="ඞ"
+    iconv -f UTF-8 -t UTF-16LE <(echo $IMPOSTOR) | clip
+    echo "$IMPOSTOR copied to the clipboard. Kinda sus."
+}
+
 function aws_profile() {
     if [[ -n $AWS_PROFILE ]]; then
       echo -n "(aws:$AWS_PROFILE)"
@@ -36,8 +44,9 @@ function aws_profile() {
     fi
 }
 
-function v() { kubectl describe deploy $1 | grep "Image:" | cut -d/ -f3; }
 function klogs() { kubectl logs -f --since $1 $(kubectl get pods --no-headers -o custom-columns=":metadata.name" | fzf); }
+function ts2date() { date -d @"$1"; }
+function mts2date() { divided=$(($1 / 1000)); ts2date $divided; }
 
 # Shortcuts
 alias myfind="grep -inr"
@@ -47,18 +56,24 @@ alias l="less"
 alias ll="ls -laSh"
 alias genpasswd="cat /dev/urandom | tr -cd '[:alnum:]' | head -c 32"
 alias ms="ls"
+alias gti="git"
 alias kc="kubectl"
 alias isodate="date -u '+%Y-%m-%dT%H:%M:%S'"
+alias now="isodate"
 alias pruneLocal="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
 alias watch="watch "
 alias le_meilleur_moment_de_la_journee='echo le moment du skribbl.io'
 alias awsprof="aws configure list-profiles"
+alias lspython='tasklist | grep --text python | tr -s " "  | cut -d" " -f2'
+alias uuidgen="od -x /dev/urandom | head -1 | awk '{OFS=\"-\"; print \$2\$3,\$4,\$5,\$6,\$7\$8\$9}'"
+alias ts2date="ts2date" # Just so that it appears when looking for aliases
+alias mts2date="mts2date" # Just so that it appears when looking for aliases
 
 # Git
 alias g="git"
 alias pullall="find . -name ".git" -type d | sed 's/\/.git//' |  xargs -P10 -I{} git -C {} pull --all"
 alias gf="git flow"
-alias aal="aws-azure-login -p azure"
+alias aal="aws-azure-login -p azure --no-prompt"
 
 alias p="browse $PROJECTS_DIRECTORY"
 alias d="browse $DESKTOP_DIR"
@@ -67,17 +82,25 @@ complete -Ef
 
 if [[ "$OSTYPE" == "msys" ]]; then
   alias winpwd="pwd | xargs cygpath.exe -w"
+  alias ranger="wsl ranger"
   alias e="ii ."
   export PATH=$PATH:"/c/Program Files/KDiff3"
   export PATHEXT=$PATHEXT:".py"
 
   function wealpath(){ realpath $1 | xargs cygpath.exe -w; }
+
+  # Cowfile utils
+  export COWFILE_LOCATION="\/mnt\/c\/Users\/$USERNAME\/.cowfiles\/cowfiles\/"
+  function jordisay() { wsl -- cowsay -f $COWFILE_LOCATION'\/jordi.cow' $1; }
+  function squirtsay() { wsl -- cowsay -f $COWFILE_LOCATION'\/squirtle.cow' $1; }
+  function locusay() { wsl -- cowsay -f $COWFILE_LOCATION'\/locust.cow' $1; }
 fi
 
 include ~/.config/fzf/key-bindings.bash
 include ~/.config/fzf/completion.bash
+include ~/.config/aliasrc
 include ~/.kube-ps1/kube-ps1.sh
 
-#kubectx and kubens
+# kubectx and kubens
 export PATH=~/.kubectx:$PATH
-MANPATH=$MANPATH:$HOME/share/man
+
