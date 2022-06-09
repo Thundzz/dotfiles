@@ -52,11 +52,13 @@ function mts2date() { divided=$(($1 / 1000)); ts2date $divided; }
 alias myfind="grep -inr"
 alias grep="grep --color"
 alias lost="echo 4 8 15 16 23 42"
+alias sus="amogus"
 alias l="less"
 alias ll="ls -laSh"
 alias genpasswd="cat /dev/urandom | tr -cd '[:alnum:]' | head -c 32"
 alias ms="ls"
 alias gti="git"
+alias sbt="sbt -no-colors"
 alias kc="kubectl"
 alias isodate="date -u '+%Y-%m-%dT%H:%M:%S'"
 alias now="isodate"
@@ -68,12 +70,18 @@ alias lspython='tasklist | grep --text python | tr -s " "  | cut -d" " -f2'
 alias uuidgen="od -x /dev/urandom | head -1 | awk '{OFS=\"-\"; print \$2\$3,\$4,\$5,\$6,\$7\$8\$9}'"
 alias ts2date="ts2date" # Just so that it appears when looking for aliases
 alias mts2date="mts2date" # Just so that it appears when looking for aliases
+alias searchcmd="ls ~/bin/ | fzf"
+alias reload="source ~/.bashrc"
 
 # Git
 alias g="git"
 alias pullall="find . -name ".git" -type d | sed 's/\/.git//' |  xargs -P10 -I{} git -C {} pull --all"
 alias gf="git flow"
-alias aal="aws-azure-login -p azure --no-prompt"
+alias aal="aws-azure-login --no-prompt; export AWS_DEFAULT_PROFILE=default; export AWS_PROFILE=default;"
+alias aalp="aws-azure-login -p prod --no-prompt; export AWS_DEFAULT_PROFILE=prod; export AWS_PROFILE=prod; "
+alias aala="aws-azure-login -p azure --no-prompt"
+alias dev="git co develop"
+alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 
 alias p="browse $PROJECTS_DIRECTORY"
 alias d="browse $DESKTOP_DIR"
@@ -86,14 +94,22 @@ if [[ "$OSTYPE" == "msys" ]]; then
   alias e="ii ."
   export PATH=$PATH:"/c/Program Files/KDiff3"
   export PATHEXT=$PATHEXT:".py"
-
+  export MSYS=enable_pcon # Fix CTRL+C in ssh sessions (https://github.com/git-for-windows/git/issues/3657#issuecomment-1028037890)
   function wealpath(){ realpath $1 | xargs cygpath.exe -w; }
-
+  function meme() {
+    chosen=$(cd "$HOME/OneDrive - AT INTERNET/Images/"; wealpath "$(fzf)")
+    echo $chosen
+    echo nircmd clipboard copyimage "$chosen"
+    nircmd clipboard copyimage "$chosen"
+    echo $?
+  }
   # Cowfile utils
   export COWFILE_LOCATION="\/mnt\/c\/Users\/$USERNAME\/.cowfiles\/cowfiles\/"
   function jordisay() { wsl -- cowsay -f $COWFILE_LOCATION'\/jordi.cow' $1; }
   function squirtsay() { wsl -- cowsay -f $COWFILE_LOCATION'\/squirtle.cow' $1; }
   function locusay() { wsl -- cowsay -f $COWFILE_LOCATION'\/locust.cow' $1; }
+elif [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
+  alias cdbeaver="cd /mnt/c/Users/yel-jarrari/AppData/Roaming/DBeaverData/workspace6/General"
 fi
 
 include ~/.config/fzf/key-bindings.bash
@@ -103,4 +119,3 @@ include ~/.kube-ps1/kube-ps1.sh
 
 # kubectx and kubens
 export PATH=~/.kubectx:$PATH
-
