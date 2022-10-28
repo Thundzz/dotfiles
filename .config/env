@@ -7,7 +7,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_TEMPLATES_DIR="$HOME/.local/templates"
 export RXVT_SOCKET="$XDG_RUNTIME_DIR"/urxvtd
 
-# Cleanup 
+# Cleanup
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker

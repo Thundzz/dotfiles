@@ -1,12 +1,12 @@
 
 alias ll="ls -la"
-alias cp="cp -i"                            
-alias df='df -h'                            
-alias free='free -m'                        
-alias np='nano -w PKGBUILD'  
-alias more=less  
-alias clip="xclip -sel clipboard"  
-alias git='LANG=en_GB git'  
+alias cp="cp -i"
+alias df='df -h'
+alias free='free -m'
+alias np='nano -w PKGBUILD'
+alias more=less
+alias clip="xclip -sel clipboard"
+alias git='LANG=en_GB git'
 alias p='cd $(ls -d $PROJECTS_DIRECTORY/* | fzf)'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias subl="subl3"

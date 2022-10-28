@@ -10,7 +10,9 @@ export HISTFILESIZE=20000
 export PROJECTS_DIRECTORY=/c/Projects
 export DESKTOP_DIR=$HOME/Desktop
 export EDITOR="subl -n -w"
-export TERM="screen-256color"
+export KUBE_EDITOR="code -nw"
+export TERM="xterm-256color"
+# export TERM="screen-256color"
 export ANSICON=true
 export FZF_DEFAULT_OPTS='--no-height --reverse'
 export PS1='\n\[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\] `kube_ps1` `aws_profile` \n$ '
@@ -48,23 +50,28 @@ function klogs() { kubectl logs -f --since $1 $(kubectl get pods --no-headers -o
 function ts2date() { date -d @"$1"; }
 function mts2date() { divided=$(($1 / 1000)); ts2date $divided; }
 
+# Dyslexia
+alias ms="ls"
+alias gti="git"
+
+# Memes
+alias lost="echo 4 8 15 16 23 42"
+alias sus="amogus"
+alias le_meilleur_moment_de_la_journee='echo le moment du skribbl.io'
+
 # Shortcuts
 alias myfind="grep -inr"
 alias grep="grep --color"
-alias lost="echo 4 8 15 16 23 42"
-alias sus="amogus"
 alias l="less"
 alias ll="ls -laSh"
 alias genpasswd="cat /dev/urandom | tr -cd '[:alnum:]' | head -c 32"
-alias ms="ls"
-alias gti="git"
 alias sbt="sbt -no-colors"
 alias kc="kubectl"
 alias isodate="date -u '+%Y-%m-%dT%H:%M:%S'"
 alias now="isodate"
+alias nowts="date +%s"
 alias pruneLocal="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
 alias watch="watch "
-alias le_meilleur_moment_de_la_journee='echo le moment du skribbl.io'
 alias awsprof="aws configure list-profiles"
 alias lspython='tasklist | grep --text python | tr -s " "  | cut -d" " -f2'
 alias uuidgen="od -x /dev/urandom | head -1 | awk '{OFS=\"-\"; print \$2\$3,\$4,\$5,\$6,\$7\$8\$9}'"
@@ -72,17 +79,24 @@ alias ts2date="ts2date" # Just so that it appears when looking for aliases
 alias mts2date="mts2date" # Just so that it appears when looking for aliases
 alias searchcmd="ls ~/bin/ | fzf"
 alias reload="source ~/.bashrc"
+alias ebrc="$EDITOR -nw ~/.bashrc && source ~/.bashrc && echo '.bashrc edited and reloaded'"
+alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+alias glab="EDITOR=vim glab"
+alias scalagrep="grep -nri --include='*.scala'"
+
+
+# aws-azure-login
+alias aal="aws-azure-login --no-prompt; export AWS_DEFAULT_PROFILE=default; export AWS_PROFILE=default;"
+alias aalp="aws-azure-login -p prod --no-prompt; export AWS_DEFAULT_PROFILE=prod; export AWS_PROFILE=prod; "
+alias aala="aws-azure-login -p azure --no-prompt"
 
 # Git
 alias g="git"
 alias pullall="find . -name ".git" -type d | sed 's/\/.git//' |  xargs -P10 -I{} git -C {} pull --all"
 alias gf="git flow"
-alias aal="aws-azure-login --no-prompt; export AWS_DEFAULT_PROFILE=default; export AWS_PROFILE=default;"
-alias aalp="aws-azure-login -p prod --no-prompt; export AWS_DEFAULT_PROFILE=prod; export AWS_PROFILE=prod; "
-alias aala="aws-azure-login -p azure --no-prompt"
 alias dev="git co develop"
-alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 
+# Quick browsing to important directories
 alias p="browse $PROJECTS_DIRECTORY"
 alias d="browse $DESKTOP_DIR"
 
@@ -91,6 +105,7 @@ complete -Ef
 if [[ "$OSTYPE" == "msys" ]]; then
   alias winpwd="pwd | xargs cygpath.exe -w"
   alias ranger="wsl ranger"
+  alias cal="wsl cal"
   alias e="ii ."
   export PATH=$PATH:"/c/Program Files/KDiff3"
   export PATHEXT=$PATHEXT:".py"
@@ -114,6 +129,7 @@ fi
 
 include ~/.config/fzf/key-bindings.bash
 include ~/.config/fzf/completion.bash
+include /c/bin/gum/completions/gum.bash
 include ~/.config/aliasrc
 include ~/.kube-ps1/kube-ps1.sh
 
