@@ -109,7 +109,9 @@ if [[ "$OSTYPE" == "msys" ]]; then
   alias e="ii ."
   export PATH=$PATH:"/c/Program Files/KDiff3"
   export PATHEXT=$PATHEXT:".py"
-  export MSYS=enable_pcon # Fix CTRL+C in ssh sessions (https://github.com/git-for-windows/git/issues/3657#issuecomment-1028037890)
+  # export MSYS="enable_pcon,winsymlinks:nativestrict" # Fix CTRL+C in ssh sessions (https://github.com/git-for-windows/git/issues/3657#issuecomment-1028037890)
+  export MSYS="winsymlinks:nativestrict" # Fix CTRL+C in ssh sessions (https://github.com/git-for-windows/git/issues/3657#issuecomment-1028037890)
+
   function wealpath(){ realpath $1 | xargs cygpath.exe -w; }
   function meme() {
     chosen=$(cd "$HOME/OneDrive - AT INTERNET/Images/"; wealpath "$(fzf)")
