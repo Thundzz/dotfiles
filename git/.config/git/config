@@ -1,6 +1,14 @@
-[user]
-    email =
-    name =
+[include]
+    path = ~/.config/git/user
+
+# Please fill in the user section a separate file in order to avoid committing
+# email and name files to dotfile repo
+#
+# [user]
+#    email =
+#    name =
+
+
 [alias]
     fid = !git flow init -d
     st = status
@@ -77,3 +85,6 @@
 
 [mergetool]
     keepBackup = false
+
+[include]
+    path = ~/.config/git/user
