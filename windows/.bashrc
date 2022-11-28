@@ -125,6 +125,8 @@ if [[ "$OSTYPE" == "msys" ]]; then
   function jordisay() { wsl -- cowsay -f $COWFILE_LOCATION'\/jordi.cow' $1; }
   function squirtsay() { wsl -- cowsay -f $COWFILE_LOCATION'\/squirtle.cow' $1; }
   function locusay() { wsl -- cowsay -f $COWFILE_LOCATION'\/locust.cow' $1; }
+
+  alias cdbeaver="cd /c/Users/yel-jarrari/AppData/Roaming/DBeaverData/workspace6/General"
 elif [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
   alias cdbeaver="cd /mnt/c/Users/yel-jarrari/AppData/Roaming/DBeaverData/workspace6/General"
 fi
