@@ -3,7 +3,19 @@
 set nocompatible
 
 " Activation de pathogen
-call pathogen#infect()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Plugin 'VundleVim/Vundle.vim'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" -- airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " -- Affichage
 set title                 " Met a jour le titre de votre fenetre ou de
@@ -42,16 +54,14 @@ filetype plugin on
 filetype indent on
 " Utilise la version sombre de Solarized
 set background=dark
-colorscheme monokai
-
+" colorscheme monokai
 
 " Desactiver les touches directionnelles
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-
+" map <up> <nop>
+" map <down> <nop>
+" map <left> <nop>
+" map <right> <nop>
+" imap <up> <nop>
+" imap <down> <nop>
+" imap <left> <nop>
+" imap <right> <nop>
