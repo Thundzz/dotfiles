@@ -2,3 +2,22 @@
 
 This repo contains various handy configuration files.
 It is not very often updated and is more of a backup of my useful stuff  rather than a bleeding edge always up-to-date version of my configuration.
+
+# Using Stow
+
+## Installing GNU Stow on windows
+
+* Install stow binaries for MSYS2
+* Enable windows symlinks by default on MSYS2 using environment variable
+
+**WIP**
+
+## Deploying config files on windows
+
+To deploy the "windows" package for example, you can use:
+
+```bash
+stow  windows -t ~
+```
+
+You need admin privileges to create windows symlinks.
