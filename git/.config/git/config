@@ -32,6 +32,7 @@
     reboot = checkout -- .
     sync = !"git syncmain; git remote prune origin; git brsync"
     syncmain = !"git checkout master; git pull; git checkout develop; git pull"
+    pullall = !"git checkout master; git pull; git checkout develop; git pull"
     lc = !git oneline ORIG_HEAD.. --stat --no-merges
     addm = !git-ls-files -m -z | xargs -0 git-add && git status
     addu = !git-ls-files -o --exclude-standard -z | xargs -0 git-add && git status
