@@ -86,8 +86,8 @@ alias scalagrep="grep -nri --include='*.scala'"
 
 
 # aws-azure-login
-alias aal="aws-azure-login --no-prompt; export AWS_DEFAULT_PROFILE=default; export AWS_PROFILE=default;"
-alias aalp="aws-azure-login -p prod --no-prompt; export AWS_DEFAULT_PROFILE=prod; export AWS_PROFILE=prod; "
+alias aal="export AWS_DEFAULT_PROFILE=default; export AWS_PROFILE=default; aws-azure-login -p default --no-prompt;"
+alias aalp="export AWS_DEFAULT_PROFILE=prod; export AWS_PROFILE=prod; aws-azure-login -p prod --no-prompt;"
 alias aala="aws-azure-login -p azure --no-prompt"
 
 # Git
