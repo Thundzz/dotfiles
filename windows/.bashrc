@@ -107,10 +107,10 @@ if [[ "$OSTYPE" == "msys" ]]; then
   alias ranger="wsl ranger"
   alias cal="wsl cal"
   alias e="ii ."
+  alias ln='MSYS="winsymlinks:nativestrict" ln' # Create "real" windows symlinks
+  alias ssh='MSYS="enable_pcon" ssh' # Fix CTRL+C in ssh sessions (https://github.com/git-for-windows/git/issues/3657#issuecomment-1028037890)
   export PATH=$PATH:"/c/Program Files/KDiff3"
   export PATHEXT=$PATHEXT:".py"
-  # export MSYS="enable_pcon,winsymlinks:nativestrict" # Fix CTRL+C in ssh sessions (https://github.com/git-for-windows/git/issues/3657#issuecomment-1028037890)
-  export MSYS="winsymlinks:nativestrict" # Fix CTRL+C in ssh sessions (https://github.com/git-for-windows/git/issues/3657#issuecomment-1028037890)
 
   function wealpath(){ realpath $1 | xargs cygpath.exe -w; }
   function meme() {
