@@ -108,6 +108,7 @@ if [[ "$OSTYPE" == "msys" ]]; then
   alias cal="wsl cal"
   alias e="ii ."
   alias ln='MSYS="winsymlinks:nativestrict" ln' # Create "real" windows symlinks
+  alias stow='MSYS="winsymlinks:nativestrict" stow' # Create "real" windows symlinks
   alias ssh='MSYS="enable_pcon" ssh' # Fix CTRL+C in ssh sessions (https://github.com/git-for-windows/git/issues/3657#issuecomment-1028037890)
   export PATH=$PATH:"/c/Program Files/KDiff3"
   export PATHEXT=$PATHEXT:".py"
