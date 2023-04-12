@@ -95,6 +95,7 @@ alias g="git"
 alias pullall="find . -name ".git" -type d | sed 's/\/.git//' |  xargs -P10 -I{} git -C {} pull --all"
 alias gf="git flow"
 alias dev="git co develop"
+alias mas="git co master"
 
 # Quick browsing to important directories
 alias p="browse $PROJECTS_DIRECTORY"
