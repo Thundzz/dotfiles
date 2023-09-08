@@ -82,7 +82,7 @@ alias searchcmd="ls ~/bin/ | fzf"
 alias reload="source ~/.bashrc"
 alias ebrc="$EDITOR -nw ~/.bashrc && source ~/.bashrc && echo '.bashrc edited and reloaded'"
 alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
-alias glab="EDITOR=vim glab"
+alias glab="FORCE_HYPERLINKS=1 EDITOR=vim glab"
 alias scalagrep="grep -nri --include='*.scala'"
 
 
