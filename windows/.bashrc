@@ -14,11 +14,11 @@ export KUBE_EDITOR="code -nw"
 export TERM="xterm-256color"
 # export TERM="screen-256color"
 export ANSICON=true
-export FZF_DEFAULT_OPTS='--no-height --reverse'
+# export FZF_DEFAULT_OPTS='--no-height --reverse'
 export PS1='\n\[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\] `kube_ps1` `aws_profile` \n$ '
 
 function browse() {
-    directory=`ls -d $1/* | fzf`
+    directory=`ls -d $1/* | FZF_DEFAULT_OPTS='--no-height --reverse' fzf`
     if [ -z "$directory" ]
     then
      directory=$1
