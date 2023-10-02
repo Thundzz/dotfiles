@@ -75,7 +75,7 @@ alias pruneLocal="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git
 alias watch="watch "
 alias awsprof="aws configure list-profiles"
 alias lspython='tasklist | grep --text python | tr -s " "  | cut -d" " -f2'
-alias uuidgen="od -x /dev/urandom | head -1 | awk '{OFS=\"-\"; print \$2\$3,\$4,\$5,\$6,\$7\$8\$9}'"
+alias uuid="od -x /dev/urandom | head -1 | awk '{OFS=\"-\"; print \$2\$3,\$4,\$5,\$6,\$7\$8\$9}'"
 alias ts2date="ts2date" # Just so that it appears when looking for aliases
 alias mts2date="mts2date" # Just so that it appears when looking for aliases
 alias searchcmd="ls ~/bin/ | fzf"
