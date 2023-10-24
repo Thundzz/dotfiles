@@ -84,6 +84,8 @@ alias ebrc="$EDITOR -nw ~/.bashrc && source ~/.bashrc && echo '.bashrc edited an
 alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias glab="FORCE_HYPERLINKS=1 EDITOR=vim glab"
 alias scalagrep="grep -nri --include='*.scala'"
+alias pygrep="grep -nri --include='*.py'"
+alias sqlgrep="grep -nri --include='*.sql'"
 
 
 # aws-azure-login
