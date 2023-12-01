@@ -65,7 +65,7 @@
 [push]
     default = simple
     followTags = true
-
+    autoSetupRemote = true
 [merge]
     tool = kdiff3
 
