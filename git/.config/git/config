@@ -17,6 +17,7 @@
     ci = commit
     amend = commit --amend
     br = branch
+    curbr = rev-parse --abbrev-ref HEAD
     bra = branch -a
     brsync = !"git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs --no-run-if-empty git branch -d"
     poule = pull
