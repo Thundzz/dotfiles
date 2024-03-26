@@ -61,7 +61,7 @@
 [core]
     edit = "subl -n -w"
     editor = "subl -n -w"
-    autocrlf = true
+	autocrlf = false
 
 [push]
     default = simple
