@@ -11,7 +11,8 @@ export PROJECTS_DIRECTORY=/c/Projects
 export DESKTOP_DIR=$HOME/Desktop
 export EDITOR="subl -n -w"
 export KUBE_EDITOR="code -nw"
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
+export TERM=screen
 # export TERM="screen-256color"
 export ANSICON=true
 # export FZF_DEFAULT_OPTS='--no-height --reverse'
@@ -71,6 +72,8 @@ alias isodate="date -u '+%Y-%m-%dT%H:%M:%S'"
 alias datecompact="date -u +"%Y%m%d%H%M%S""
 alias now="isodate"
 alias nowts="date +%s"
+alias nowshort='date "+%Y-%m-%d"'
+alias today="nowshort"
 alias tzoffset="date +%z"
 alias pruneLocal="git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
 alias watch="watch "
@@ -87,7 +90,6 @@ alias glab="FORCE_HYPERLINKS=1 EDITOR=vim glab"
 alias scalagrep="grep -nri --include='*.scala'"
 alias pygrep="grep -nri --include='*.py'"
 alias sqlgrep="grep -nri --include='*.sql'"
-
 
 # aws-azure-login
 alias aal="export AWS_DEFAULT_PROFILE=default; export AWS_PROFILE=default; aws-azure-login -p default --no-prompt;"
@@ -142,6 +144,7 @@ include ~/.config/fzf/completion.bash
 include /c/bin/gum/completions/gum.bash
 include ~/.config/aliasrc
 include ~/.kube-ps1/kube-ps1.sh
+kubeoff
 
 # kubectx and kubens
 export PATH=~/.kubectx:$PATH
