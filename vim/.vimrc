@@ -43,6 +43,9 @@ set noerrorbells          " Empeche Vim de beeper
 " Active le comportement 'habituel' de la touche retour en arriere
 set backspace=indent,eol,start
 
+" Diable visual bell in vim
+set t_vb=
+
 " Cache les fichiers lors de l'ouverture d'autres fichiers
 set hidden
 " Active la coloration syntaxique
