@@ -85,6 +85,7 @@ alias mts2date="mts2date" # Just so that it appears when looking for aliases
 alias searchcmd="ls ~/bin/ | fzf"
 alias reload="source ~/.bashrc"
 alias ebrc="$EDITOR -nw ~/.bashrc && source ~/.bashrc && echo '.bashrc edited and reloaded'"
+alias vbrc="less -nw ~/.bashrc"
 alias fzfp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias glab="FORCE_HYPERLINKS=1 EDITOR=vim glab"
 alias scalagrep="grep -nri --include='*.scala'"
