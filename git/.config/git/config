@@ -23,6 +23,7 @@
     poule = pull
     poush = push
     pushall = !git push && git co master && git push && git push --tags && git co develop
+    pa = !"git co develop && git push && git co master && git push && git push --tags && git co develop"
     who = shortlog -sne
     oneline = log --pretty=oneline --abbrev-commit --graph
     changes = diff --name-status
