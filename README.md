@@ -10,6 +10,7 @@ It is not very often updated and is more of a backup of my useful stuff  rather 
 * Install stow binaries for MSYS2 (add stow to path)
 * Archive can be found here : https://ftp.gnu.org/gnu/stow/
 * Copy includes for stow in perl vendor directory to the git for windows directory (C:\Program Files\Git\usr\lib\perl5\vendor_perl)
+  * As of the writing of this readme, only the two files `Stow.pm` and `Stow.pm.in` are required
 * Enable windows symlinks by default on MSYS2 using environment variable, you can do this through this alias:
 
 ```
