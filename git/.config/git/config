@@ -44,6 +44,8 @@
     viewtags = tag -l --format='%(tag) %(subject)'
     s = status -s
     names=!"git status -s | cut -c4-"
+    dos2unix = !"git names | xargs dos2unix"
+
     lgold = log --oneline --decorate --all --graph
     lg = log --color --abbrev-commit  --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     lga = log --all --color --abbrev-commit  --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
@@ -63,7 +65,7 @@
 [core]
     edit = "subl -n -w"
     editor = "subl -n -w"
-	autocrlf = false
+	autocrlf = true
 
 [push]
     default = simple
