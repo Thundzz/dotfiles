@@ -45,6 +45,7 @@
     s = status -s
     names=!"git status -s | cut -c4-"
     dos2unix = !"git names | xargs dos2unix"
+    undo = !"git reset --hard && git clean -f"
 
     lgold = log --oneline --decorate --all --graph
     lg = log --color --abbrev-commit  --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
