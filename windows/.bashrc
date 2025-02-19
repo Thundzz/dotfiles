@@ -131,6 +131,7 @@ if [[ "$OSTYPE" == "msys" ]]; then
   }
   # Cowfile utils
   export COWFILE_LOCATION="\/mnt\/c\/Users\/$USERNAME\/.cowfiles\/cowfiles\/"
+  export JSII_SILENCE_WARNING_UNTESTED_NODE_VERSION=true
   function jordisay() { wsl -- cowsay -f $COWFILE_LOCATION'\/jordi.cow' $1; }
   function squirtsay() { wsl -- cowsay -f $COWFILE_LOCATION'\/squirtle.cow' $1; }
   function locusay() { wsl -- cowsay -f $COWFILE_LOCATION'\/locust.cow' $1; }
