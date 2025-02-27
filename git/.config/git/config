@@ -14,6 +14,7 @@
     st = status
     df = diff
     co = checkout
+    cob = co -b
     ci = commit
     amend = commit --amend
     br = branch
