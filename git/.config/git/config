@@ -67,7 +67,7 @@
 [core]
     edit = "subl -n -w"
     editor = "subl -n -w"
-	autocrlf = true
+	# autocrlf = true # Add this to user config when on windows
 
 [push]
     default = simple
@@ -81,6 +81,9 @@
 
 [gc]
     autoDetach = false
+
+[init]
+    defaultBranch = main
 
 [gitflow "prefix"]
     master = master/
