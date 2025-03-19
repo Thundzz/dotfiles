@@ -16,6 +16,7 @@
     co = checkout
     cob = co -b
     ci = commit
+    cpb = !"git curbr | clip"
     amend = commit --amend
     br = branch
     curbr = rev-parse --abbrev-ref HEAD
