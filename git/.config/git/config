@@ -68,6 +68,7 @@
 [core]
     edit = "subl -n -w"
     editor = "subl -n -w"
+	whitespace = cr-at-eol
 	# autocrlf = true # Add this to user config when on windows
 
 [push]
