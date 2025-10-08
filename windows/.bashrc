@@ -95,6 +95,7 @@ alias sqlgrep="grep -nri --include='*.sql'"
 # aws-azure-login
 alias aal="export AWS_DEFAULT_PROFILE=default; export AWS_PROFILE=default; aws-azure-login -p default --no-prompt;"
 alias aalp="export AWS_DEFAULT_PROFILE=prod; export AWS_PROFILE=prod; aws-azure-login -p prod --no-prompt;"
+alias aals="export AWS_DEFAULT_PROFILE=shared; export AWS_PROFILE=shared; aws-azure-login -p shared --no-prompt;"
 alias aala="aws-azure-login -p azure --no-prompt"
 
 # Git
