@@ -38,14 +38,14 @@ function amogus() {
 }
 
 function aws_profile() {
-    if [[ -n $AWS_PROFILE ]]; then
-      echo -n "(aws:$AWS_PROFILE)"
-    elif [[ -n $AWS_DEFAULT_PROFILE ]]; then
-      echo -n "(aws:$AWS_DEFAULT_PROFILE)"
-    else
-      echo -n "(aws:default)"
-    fi
+  local profile="${AWS_PROFILE:-${AWS_DEFAULT_PROFILE}}"
+  profile=${profile:-noprof}
+  local region="${AWS_REGION:-$AWS_DEFAULT_REGION}"
+  region=${region:-noregion}
+  echo -n "(aws:$profile/$region)"
 }
+
+
 
 function klogs() { kubectl logs -f --since $1 $(kubectl get pods --no-headers -o custom-columns=":metadata.name" | fzf); }
 function ts2date() { date -d @"$1"; }
@@ -92,11 +92,14 @@ alias scalagrep="grep -nri --include='*.scala'"
 alias pygrep="grep -nri --include='*.py'"
 alias sqlgrep="grep -nri --include='*.sql'"
 
-# aws-azure-login
-alias aal="export AWS_DEFAULT_PROFILE=default; export AWS_PROFILE=default; aws-azure-login -p default --no-prompt;"
-alias aalp="export AWS_DEFAULT_PROFILE=prod; export AWS_PROFILE=prod; aws-azure-login -p prod --no-prompt;"
-alias aals="export AWS_DEFAULT_PROFILE=shared; export AWS_PROFILE=shared; aws-azure-login -p shared --no-prompt;"
-alias aala="aws-azure-login -p azure --no-prompt"
+# sso login
+alias ssd="export AWS_DEFAULT_PROFILE=dev; export AWS_PROFILE=dev; sso dev;"
+alias ssp="export AWS_DEFAULT_PROFILE=prod; export AWS_PROFILE=prod; sso prod"
+
+function region(){
+  CHOSEN_REGION=$(echo -e "eu-west-1\nus-east-1\nap-northeast-1"  | fzf)
+  export AWS_DEFAULT_REGION=$CHOSEN_REGION; export AWS_REGION=$CHOSEN_REGION
+}
 
 # Git
 alias g="git"
@@ -151,3 +154,4 @@ kubeoff
 
 # kubectx and kubens
 export PATH=~/.kubectx:$PATH
+
