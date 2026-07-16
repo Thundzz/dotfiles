@@ -1,1 +1,2 @@
 set bell-style audible
+Control-P: "-e prod -r eu-west-1 "

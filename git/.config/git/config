@@ -18,6 +18,7 @@
     ci = commit
     cpb = !"git curbr | clip"
     amend = commit --amend
+    committers = "shortlog -sne"
     br = branch
     curbr = rev-parse --abbrev-ref HEAD
     bra = branch -a
@@ -56,6 +57,7 @@
     lg1 = !"git lg1-specific --all"
     lg2 = !"git lg2-specific --all"
     lg3 = !"git lg3-specific --all"
+    lastmsgs = log -10 --format=%s
 
     state = !"git fetch --prune ; git fetch --tags ; clear && git branch -vv && git status"
     lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%Cred%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'

@@ -61,7 +61,6 @@ alias sus="amogus"
 alias le_meilleur_moment_de_la_journee='echo le moment du skribbl.io'
 
 # Shortcuts
-alias myfind="grep -inr"
 alias grep="grep --color"
 alias l="less"
 alias ll="ls -laSh"
@@ -91,6 +90,8 @@ alias glab="FORCE_HYPERLINKS=1 EDITOR=vim glab"
 alias scalagrep="grep -nri --include='*.scala'"
 alias pygrep="grep -nri --include='*.py'"
 alias sqlgrep="grep -nri --include='*.sql'"
+alias agent="powershell agent.ps1"
+alias mver="mvn help:evaluate -Dexpression=project.version -q -DforceStdout"
 
 # sso login
 alias ssd="export AWS_DEFAULT_PROFILE=dev; export AWS_PROFILE=dev; sso dev;"
@@ -114,7 +115,7 @@ alias d="browse $DESKTOP_DIR"
 
 complete -Ef
 
-if [[ "$OSTYPE" == "msys" ]]; then
+if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" ]]; then
   alias winpwd="pwd | xargs cygpath.exe -w"
   alias ranger="wsl ranger"
   alias cal="wsl cal"
