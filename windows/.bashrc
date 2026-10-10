@@ -94,7 +94,7 @@ alias agent="powershell agent.ps1"
 alias mver="mvn help:evaluate -Dexpression=project.version -q -DforceStdout"
 
 # sso login
-alias ssd="export AWS_DEFAULT_PROFILE=dev; export AWS_PROFILE=dev; sso dev;"
+alias ssd="export AWS_DEFAULT_PROFILE=dev; export AWS_PROFILE=dev; sso dev"
 alias ssp="export AWS_DEFAULT_PROFILE=prod; export AWS_PROFILE=prod; sso prod"
 
 function region(){
